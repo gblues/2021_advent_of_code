@@ -1,16 +1,12 @@
 #!/usr/bin/env python
 
 with open('input.txt') as fh:
-  data = fh.readlines()
+  data = [int(x) for x in fh.read().strip().split('\n')]
 
 previous_measurement = None
 count = 0
 
 for measurement in data:
-    if not measurement.strip():
-      continue
-
-    value = int(measurement.strip())
     if previous_measurement is None:
       previous_measurement = value
       continue
@@ -21,5 +17,3 @@ for measurement in data:
     previous_measurement = value
 
 print(count)
-
-
